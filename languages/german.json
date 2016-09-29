@@ -1,0 +1,146 @@
+{
+    "navigation" : {
+        "home" : "Home",
+        "persons" : "Personen",
+        "companies" : "Firmen",
+        "import" : "Import",
+        "about" : "Über",
+        "login" : "Login",
+        "logout" : "Logout",
+        "changePassword" : "Passwort ändern",
+        "deleteAccount" : "Account löschen",
+        "createAccount" : "Neuen Account erstellen"
+    },
+
+    "alerts" : {
+        "editSuccessTitle" : "Awesome!",
+        "editSuccessText" : "Datensatz wurde erfolgreich in der Datenbank aktualisiert",
+        "editFailTitle" : "Upps!",
+        "editFailText" : "Da ist wohl was schief gelaufen."
+    },
+
+    "home" : {
+        "intro1" : "Hallo, ich bin",
+        "intro2" : "Eine möglichst minimalistische CRM Software.",
+        "infoText" : "Mehr Informationen gibt es zur Zeit leider noch nicht wirklich, aber für zumindest ein klein wenig mehr solltest du in unser GitHub Repo schauen! :)"
+    },
+
+    "about" : {
+        "intro1" : "Mit ",
+        "intro2" : " gemacht und angetrieben durch ",
+        "contact1" : "Solltest du irgendwelche Bugs finden oder Fragen zu diesem Projekt haben, schicke doch bitte eine Mail an ",
+        "contact2" : "unsere Mailingliste",
+        "contact3" : " oder öffne direkt ein Issue auf der ",
+        "contact4" : "Projektseite",
+        "contact5" : ". Danke :)"
+    },
+
+    "persons" : {
+        "title" : "Personen",
+        "name" : "NAME",
+        "firstName" : "Vorname",
+        "lastName" : "Nachname",
+        "url" : "URL",
+        "adress" : "ADRESSE",
+        "street": "STRASSE",
+        "postcode": "PLZ",
+        "city": "ORT",
+        "country": "LAND",
+        "company" : "FIRMA",
+        "department": "ABTEILUNG",
+        "email" : "E-MAIL",
+        "phone": "TELEFON",
+        "fax": "FAX",
+        "category" : "KATEGORIE",
+        "edit" : "EDITIEREN",
+        "memo" : "MEMO",
+        "infoButtonText" : "INFO",
+        "editButtonText" : "EDITIEREN",
+        "cancelButtonText" : "ABBRECHEN",
+        "saveButtonText" : "SPEICHERN",
+        "addButtonText" : "NEUE PERSON HINZUFÜGEN",
+        "backButtonText" : "ZURÜCK",
+        "deleteDialogText" : "Wollen Sie %1 %2 wirklich löschen?"
+    },
+
+    "companies" : {
+        "title" : "Firmen",
+        "name" : "NAME",
+        "url" : "URL",
+        "adress" : "ADRESSE",
+        "edit": "EDITIEREN",
+        "email": "E-MAIL",
+        "phone": "TELEFON",
+        "fax": "FAX",
+        "memo" : "MEMO",
+        "deleteConfirmText" : "Wollen Sie diese Firma wirklich löschen?",
+        "infoButtonText" : "INFO",
+        "editButtonText" : "EDITIEREN",
+        "cancelButtonText" : "ABBRECHEN",
+        "saveButtonText" : "SPEICHERN",
+        "addButtonText" : "NEUE FIRMA HINZUFÜGEN",
+        "backButtonText" : "ZURÜCK",
+        "deleteDialogText" : "Wollen Sie %1 wirklich löschen?"
+    },
+
+    "import" : {
+        "title" : "Importieren von Daten in die Datenbank.",
+        "alertInfoTitle" : "Achtung!",
+        "alertInfoText" : "Nutzen Sie diese Funktion nur wenn sie sich sicher sind, was sie tun.",
+        "alertErrorTitle" : "Import fehlgeschlagen!",
+        "alertErrorText" : "Die Daten aus der CSV-Datei konnten nicht in die Datenbank importiert werden.",
+        "alertSuccessTitle" : "Import erfolgreich!",
+        "alertSuccessText" : "Die Daten aus der CSV-Datei wurden erfolgreich in die Datenbank importiert.",
+        "importButtonText" : "IMPORTIEREN"
+    },
+
+    "errors" : {
+        "flavorText" : "Sie sollten nun in Panik verfallen und wild mit dem Armen wedelnd im Raum herumlaufen.",
+        "msgDb" : "Interner Fehler: Die Verbindung zur Datenbank ist fehlgeschlagen!",
+        "msg404" : "Die angeforderte Seite \"%0\" existiert nicht!",
+        "msg500" : "Ein unbekannter interner Fehler ist aufgetreten!"
+    },
+    
+    "login" : {
+        "title" : "Anmelden",
+        "usernameLabel" : "Benutzername",
+        "passwordLabel" : "Passwort",
+        "autoLoginLabel" : "Jedes mal automatisch anmelden, wenn ich kolledata besuche",
+        "loginButtonText" : "Anmelden",
+        "createNewAccount" : "Neues Nutzerkonto erstellen",
+        "needHelp" : "Benötigen Sie Hilfe?",
+        "messageInfo" : "Sie müssen sich zuerst anmelden um die gewünschte Seite aufrufen zu können.",
+        "messageFailed" : "Der eingegebene Benutzername oder das eingegebene Passwort waren falsch. Bitte vergewissern Sie sich das die Daten korrekt sind und versuchen Sie es erneut.",
+        "messageSuccess" : "Die Anmeldedaten waren korrekt. Sie sind nun im System angemeldet."
+    },
+    
+    "changePassword" : {
+        "title" : "Passwort ändern für Konto",
+        "oldPasswordLabel" : "Altes Passwort eingeben",
+        "newPasswordLabel" : "Neues Passwort eingeben",
+        "confirmPasswordLabel" : "Neues Passwort bestätigen",
+        "submitButtonText" : "Passwort ändern",
+        "messageOldPasswordWrong" : "Das von Ihnen eigegebene alte Passwort war falsch. Bitte vergewissern Sie sich das die Daten korrekt sind und versuchen Sie es erneut.",
+        "messageConfirmWrong" : "Das neue Passwort und dessen Bestätigung weichen voneinander ab. Bitte wiederholen Sie die Eingabe.",
+        "messageSuccess" : "Ihr Passwort wurde erfolgreich geändert."
+    },
+    
+    "createAccount" : {
+        "title" : "Neues Nutzerkonto erstellen",
+        "usernameLabel" : "Gewünschten Benuzternamen eingeben",
+        "passwordLabel" : "Gewünschtes Passwort eingeben",
+        "confirmPasswordLabel" : "Passwort bestätigen",
+        "submitButtonText" : "Konto erstellen",
+        "messageAdminError" : "Nur dem Admin ist es erlaubt, neue Accounts zu erstellen",
+        "messageConfirmWrong" : "Das neue Passwort und dessen Bestätigung weichen voneinander ab. Bitte wiederholen Sie die Eingabe.",
+        "messageUsernameDuplicate" : "Der gewählte Benutzername existiert bereits, bitte wählen Sie einen anderen.",
+        "messageSuccess" : "Der Account wurde erfolgreich erstellt."
+    },
+	
+	"deleteAccount" : {
+		"title" : "Löschen des Nutzerkontos",
+		"message" : "Wollen Sie das Nutzerkonto wirklich löschen?",
+		"submitButtonText" : "Ja",
+		"abortButtonText" : "Nein"
+	}
+}

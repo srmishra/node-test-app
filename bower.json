@@ -3,6 +3,9 @@
 	"private": true,
 	"dependencies": {
 		"jquery": "*",
-		"validator-js": "~3.16.0"
+		"validator-js": "~3.16.0",
+		"bootstrap": "*",
+		"font-awesome": "*",
+		"toastr": "*"
 	}
 }

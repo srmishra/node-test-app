@@ -1,19 +1,17 @@
-var express = require('express'),
-	path = require('path'),
-	connectAssets = require('connect-assets'),
-	favicon = require('serve-favicon'),
-	bodyParser = require('body-parser'),
-	cookies = require( "cookies" ),
-	session = require('express-session'),
-	crypto = require('crypto');
+var express = require('express');
+var path = require('path');
+var connectAssets = require('connect-assets');
+var favicon = require('serve-favicon');
+var bodyParser = require('body-parser');
+var cookies = require( "cookies" )
+var session = require('express-session');
+var crypto = require('crypto');
 
-//Database
 /**
  * Create MySQL Server with config data
  */
-var mysql = require('mysql'),
-	dbconfig = require('./config/db_config');
-
+var mysql = require('mysql');
+var dbconfig = require('./config/db_config');
 global.db = mysql.createConnection(dbconfig.config);
 
 /**
@@ -22,10 +20,11 @@ global.db = mysql.createConnection(dbconfig.config);
 
 var app = express();
 
-var env = process.env.NODE_ENV || 'development';
-if ('development' == env) {
-    app.locals.pretty = true;
-}
+/**
+ * Export the app for testability
+ */
+
+module.exports = app;
 
 /**
  * Express configuration
@@ -43,11 +42,12 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.use(cookies.express());
 app.use(session({
-    secret: 'foobar', // <- this should be a random number or something, but for testing this will be enough
+    secret: 'wtfshit',
     saveUninitialized: true,
     resave: true
 }));
-
+// This is needed to pass information to the jade templates, if the user is currently logged in
+// or not, so that they can show the correct menu options
 app.use(function(req,res,next) {
     if (req.session !== undefined && req.session.loggedIn !== undefined) {
         res.locals.loggedIn = req.session.loggedIn;
@@ -58,6 +58,11 @@ app.use(function(req,res,next) {
     next();
 });
 
+var env = process.env.NODE_ENV || 'development';
+if ('development' == env) {
+    app.locals.pretty = true;
+}
+
 // This is used for url parsing in the middle of a jade template
 app.locals.url = require('url');
 
@@ -65,6 +70,9 @@ app.locals.url = require('url');
  * Multi Language Support
  */
 
+// create the language module and store a reference in the global
+// namespace using the identifier 'lang', so it can be accessed
+// from everywhere within the application
 global.lang = require('./controllers/lang')();
 app.locals.supportedLanguages = lang.getSupportedLanguages();
 app.use(lang.getDictionary);
@@ -74,8 +82,8 @@ app.use(lang.getDictionary);
  */
 
 var homeController = require('./controllers/home')();
-/*var accountController = require('./controllers/account')();
-var personsController = require('./controllers/persons')(db);
+var accountController = require('./controllers/account')(db);
+/*var personsController = require('./controllers/persons')(db);
 var singleController = require('./controllers/person')(db);
 var companiesController = require('./controllers/companies')(db);
 var singleCompanyController = require('./controllers/company')(db);
@@ -88,16 +96,20 @@ var errorController = require('./controllers/error')();*/
 
 app.get('/', homeController.index);
 
-/*app.get('/login', accountController.loginGet);
+app.get('/lang/:tag', lang.switchLanguage);
+
+app.get('/about', homeController.about);
+
+app.get('/createadmin', accountController.createAdmin); // <= Dev method, should be removed at release
+app.get('/login', accountController.loginGet);
 app.post('/login', accountController.loginPost);
 app.get('/logout', accountController.logoutGet);
-app.get('/account/changePassword', accountController.isAuthenticated, accountController.changePasswordGet);
+/*app.get('/account/changePassword', accountController.isAuthenticated, accountController.changePasswordGet);
 app.post('/account/changePassword', accountController.isAuthenticated, accountController.changePasswordPost);
 app.get('/account/create', accountController.isAuthenticated, accountController.createAccountGet);
 app.post('/account/create', accountController.isAuthenticated, accountController.createAccountPost);
 app.get('/account/delete', accountController.isAuthenticated, accountController.deleteAccountGet);
 app.post('/account/delete', accountController.isAuthenticated, accountController.deleteAccountPost);
-app.get('/createadmin', accountController.createAdmin); // <= Dev method, should be removed at release
 
 app.get('/persons', accountController.isAuthenticated, personsController.index);
 app.get('/persons/new', accountController.isAuthenticated, personsController.newIndex);
@@ -119,18 +131,20 @@ app.post('/companies/new', accountController.isAuthenticated, companiesControlle
 app.post('/companies/find', accountController.isAuthenticated, companiesController.findID);
 app.get('/companies/:id', accountController.isAuthenticated, singleCompanyController.index);
 
-app.get('/lang/:tag', lang.switchLanguage);
 
 app.get('/import', accountController.isAuthenticated, importController.index);
 app.post('/import', accountController.isAuthenticated, importController.handleUpload);
 
-app.get('/about', homeController.about);
 
 app.get('/makecoffee', homeController.coffee);*/
 
 /**
  * Error Handling
  */
+
+// Registers all error handlers for the application
+// NOTE: if you want the error handler debug routes, set the second parameter to true
+//errorController.registerErrorHandlers(app, false);
 
 /**
  * Run server
@@ -147,9 +161,3 @@ db.connect(function(err){
 app.listen(app.get('port'), function() {
     console.log("Express server listening on http://localhost:%d", app.get('port'));
 });
-
-/**
- * Export the app for testability
- */
-
-module.exports = app;

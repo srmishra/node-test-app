@@ -1,0 +1,146 @@
+{
+    "navigation" : {
+        "home" : "Home",
+        "persons" : "Persons",
+        "companies" : "Companies",
+        "import" : "Import",
+        "about" : "About",
+        "login" : "Login",
+        "logout" : "Logout",
+        "changePassword" : "Change password",
+        "deleteAccount" : "Delete account",
+        "createAccount" : "Create new account"
+    },
+
+    "alerts" : {
+        "editSuccessTitle" : "Awesome!",
+        "editSuccessText" : "The dataset has been successfully updated with the database.",
+        "editFailTitle" : "Oops!",
+        "editFailText" : "Something went wrong."
+    },
+
+    "home" : {
+        "intro1" : "Hello, I'm",
+        "intro2" : "A minimalistic CRM Software.",
+        "infoText" : "There isn't much more information at the time, but you can look into our GitHub Repo for a little more! :)"
+    },
+
+    "about" : {
+        "intro1" : "Made with ",
+        "intro2" : " and fueled by ",
+        "contact1" : "If you find any bugs or have any issues or questions with this project, please send a mail to ",
+        "contact2" : "our mailinglist",
+        "contact3" : " or directly open an issue on the ",
+        "contact4" : "project page",
+        "contact5" : ". Thanks :)"
+    },
+
+    "persons" : {
+        "title" : "Persons",
+        "name" : "NAME",
+        "firstName" : "First Name",
+        "lastName" : "Last Name",
+        "url" : "URL",
+        "adress": "ADDRESS",
+        "street": "STREET",
+        "postcode": "POSTCODE",
+        "city": "CITY",
+        "country": "COUNTRY",
+        "company" : "COMPANY",
+        "department": "department",
+        "email" : "E-MAIL",
+        "phone": "PHONE",
+        "fax": "FAX",
+        "category": "CATEGORY",
+        "edit" : "EDIT",
+        "memo" : "MEMO",
+        "infoButtonText" : "INFO",
+        "editButtonText" : "EDIT",
+        "cancelButtonText" : "CANCEL",
+        "saveButtonText" : "SAVE",
+        "addButtonText" : "ADD NEW PERSON",
+        "backButtonText" : "BACK",
+        "deleteDialogText" : "Are you sure you want to delete %1 %2?"
+    },
+
+    "companies" : {
+        "title" : "Companies",
+        "name" : "NAME",
+        "url" : "URL",
+        "adress" : "ADRESS",
+        "edit": "EDIT",
+        "email": "E-MAIL",
+        "phone": "PHONE",
+        "fax": "FAX",
+        "memo" : "MEMO",
+        "deleteConfirmText" : "Do you really want to delete this company?",
+        "infoButtonText" : "INFO",
+        "editButtonText" : "EDIT",
+        "cancelButtonText" : "CANCEL",
+        "saveButtonText" : "SAVE",
+        "addButtonText" : "ADD NEW COMPANY",
+        "backButtonText" : "BACK",
+        "deleteDialogText" : "Are you sure you want to delete %1?"
+    },
+
+    "import" : {
+        "title" : "Import data into the database.",
+        "alertInfoTitle" : "Attention!",
+        "alertInfoText" : "Only use this function if you know what you are doing.",
+        "alertErrorTitle" : "Import failed!",
+        "alertErrorText" : "The import of the data from the CSV file was unsuccessful.",
+        "alertSuccessTitle" : "Import successful!",
+        "alertSuccessText" : "The data from the CSV file has been successfully imported into the database.",
+        "importButtonText" : "IMPORT"
+    },
+
+    "errors" : {
+        "flavorText" : "You should now begin to panic and run around in the room, waving your hands.",
+        "msgDb" : "Internal error: The connection to the database has failed!",
+        "msg404" : "The requested page \"%0\" doesn't exist!",
+        "msg500" : "An unknown internal error has occurred!"
+    },
+    
+    "login" : {
+        "title" : "Sign in",
+        "usernameLabel" : "Username",
+        "passwordLabel" : "Password",
+        "autoLoginLabel" : "Sign me in automatically every time I visit Nodedata",
+        "loginButtonText" : "Sign in",
+        "createNewAccount" : "Create a new account",
+        "needHelp" : "Need help?",
+        "messageInfo" : "You need to be logged in to access the requested page.",
+        "messageFailed" : "The entered username or password was wrong. Please make sure that the data is correct and try again.",
+        "messageSuccess" : "The enteres account data was correct. Your are now logged in to the system."
+    },
+    
+    "changePassword" : {
+        "title" : "Change password for user ",
+        "oldPasswordLabel" : "Enter old password",
+        "newPasswordLabel" : "Enter new password",
+        "confirmPasswordLabel" : "Confirm new password",
+        "submitButtonText" : "Change password",
+        "mesageOldPasswordWrong" : "The old password you have entered was wrong. Please make sure that the data is correct and try again.",
+        "messageConfirmWrong" : "The new password and it's confirmation don't match. Please try again.",
+        "messageSuccess" : "Your password was changed successfully."
+    },
+    
+    "createAccount" : {
+        "title" : "Create a new account",
+        "usernameLabel" : "Enter the desired username",
+        "passwordLabel" : "Enter the desired password",
+        "confirmPasswordLabel" : "Confirm the password",
+        "submitButtonText" : "Create account",
+        "messageAdminError" : "Only the admin is allowed to create new accounts",
+        "messageConfirmWrong" : "The password and it's confirmation don't match. Please try again.",
+        "messageUsernameDuplicate" : "The username does already exist, please choose another one.",
+        "messageSuccess" : "The account was created successfully."
+    },
+	
+	"deleteAccount" : {
+		"title" : "Delete account ",
+		"message" : "Are you sure you want to delete the account?",
+		"submitButtonText" : "Yes",
+		"abortButtonText" : "No"
+	}
+}

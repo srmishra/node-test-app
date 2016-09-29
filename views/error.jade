@@ -1,0 +1,13 @@
+﻿extends layout
+
+block content
+    .jumbotron
+        h1
+            | Error
+            =' '
+            = error.status
+        .alert.alert-danger
+            p
+                = error.message
+        p.lead
+            = dict === undefined ? 'ERROR' : dict.get('errors', 'flavorText')

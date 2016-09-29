@@ -1,0 +1,14 @@
+.alert.alert-dismissable.alert-success.fade(id='editsuccessalert')
+    button.close(type='button',data-dismiss='alert') ×
+    h4
+        = dict === undefined ? 'ERROR' : dict.get('alerts', 'editSuccessTitle')
+    p
+        = dict === undefined ? 'ERROR' : dict.get('alerts', 'editSuccessText')
+
+.alert.alert-dismissable.alert-danger.fade(id='editfailalert')
+    button.close(type='button',data-dismiss='alert') ×
+    h4
+        = dict === undefined ? 'ERROR' : dict.get('alerts', 'editFailTitle')
+    p
+        = dict === undefined ? 'ERROR' : dict.get('alerts', 'editFailText')
+		

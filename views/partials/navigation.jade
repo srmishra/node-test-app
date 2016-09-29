@@ -1,0 +1,80 @@
+.navbar.navbar-default
+    .container
+        .navbar-header
+            button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+                span.sr-only Toggle navigation
+                span.icon-bar
+                span.icon-bar
+                span.icon-bar
+            a.navbar-brand(href='/') APP
+        .collapse.navbar-collapse
+            ul.nav.navbar-nav
+                li(class=title=='Home'?'active':undefined)
+                    a(href='/')
+                        = dict === undefined ? 'Home' : dict.get('navigation', 'home')
+                li(class=title=='Persons'?'active':undefined)
+                    a(href='/persons')
+                        = dict === undefined ? 'Persons' : dict.get('navigation', 'persons')
+                li(class=title=='Companies'?'active':undefined)
+                    a(href='/companies')
+                        = dict === undefined ? 'Companies' : dict.get('navigation', 'companies')
+            ul.nav.navbar-nav.navbar-right
+                - if (loggedIn === true) {
+                    li.dropdown
+                        a.dropdown-toggle(href='#', data-toggle='dropdown')
+                            font(size='+0')
+                                i.fa.fa-child
+                            strong
+                                = ' ' + username + ' '
+                            span.caret
+                        ul.dropdown-menu(role='menu')
+                            li
+                                a(href='/account/changePassword')
+                                    i.fa.fa-edit
+                                    |  
+                                    = dict === undefined ? 'Change password' : dict.get('navigation', 'changePassword')
+                            li
+                                a(href='/account/create')
+                                    i.fa.fa-users
+                                    |  
+                                    = dict === undefined ? 'Create new account' : dict.get('navigation', 'createAccount')
+                            li
+                                a(href='/account/delete')
+                                    i.fa.fa-trash-o
+                                    |  
+                                    = dict === undefined ? 'Delete account' : dict.get('navigation', 'deleteAccount')
+                - }
+                li.dropdown
+                    a.dropdown-toggle(href='#', data-toggle='dropdown')
+                        font(size='+0')
+                            i.fa.fa-language
+                            //i.fa.fa-microphone
+                            //i.fa.fa-comment
+                        strong
+                            = ' ' + dict.tag + ' '
+                        span.caret
+                    ul.dropdown-menu(role='menu')
+                        - for (var i = 0; i < supportedLanguages.length; i++) {
+                            li
+                                 a(href='/lang/#{supportedLanguages[i].tag}')
+                                    i.fa.fa-angle-double-right
+                                    = ' ' + supportedLanguages[i].name
+                        - }
+                li(class=title=='Import'?'active':undefined)
+                    a(href='/import', data-toggle='tooltip', data-placement='bottom', title='#{dict === undefined ? "Import" : dict.get("navigation", "import")}')
+                        font(size='+0')
+                            i.fa.fa-database
+                li(class=title=='About'?'active':undefined)
+                    a(href='/about', data-toggle='tooltip', data-placement='bottom', title='#{dict === undefined ? "About" : dict.get("navigation", "about")}')
+                        font(size='+0')
+                            i.fa.fa-info-circle
+                li(class=title=='Login'?'active':undefined)
+                    - if (loggedIn === true) {
+                        a(href='/logout', data-toggle='tooltip', data-placement='bottom', title='#{dict === undefined ? "Logout" : dict.get("navigation", "logout")}')
+                            font(size='+0')
+                                i.fa.fa-sign-out
+                    - } else {
+                        a(href='/login', data-toggle='tooltip', data-placement='bottom', title='#{dict === undefined ? "Login" : dict.get("navigation", "login")}')
+                            font(size='+1')
+                                i.fa.fa-sign-in
+                    - }
