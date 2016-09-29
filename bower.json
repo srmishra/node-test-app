@@ -1,0 +1,8 @@
+{
+	"name": "node-test-app",
+	"private": true,
+	"dependencies": {
+		"jquery": "*",
+		"validator-js": "~3.16.0"
+	}
+}
