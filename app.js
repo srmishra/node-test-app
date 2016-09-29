@@ -58,6 +58,75 @@ app.use(function(req,res,next) {
     next();
 });
 
+// This is used for url parsing in the middle of a jade template
+app.locals.url = require('url');
+
+/**
+ * Multi Language Support
+ */
+
+global.lang = require('./controllers/lang')();
+app.locals.supportedLanguages = lang.getSupportedLanguages();
+app.use(lang.getDictionary);
+
+/**
+ * Controllers
+ */
+
+var homeController = require('./controllers/home')();
+/*var accountController = require('./controllers/account')();
+var personsController = require('./controllers/persons')(db);
+var singleController = require('./controllers/person')(db);
+var companiesController = require('./controllers/companies')(db);
+var singleCompanyController = require('./controllers/company')(db);
+var importController = require('./controllers/import')(db);
+var errorController = require('./controllers/error')();*/
+
+/**
+ * Routes
+ */
+
+app.get('/', homeController.index);
+
+/*app.get('/login', accountController.loginGet);
+app.post('/login', accountController.loginPost);
+app.get('/logout', accountController.logoutGet);
+app.get('/account/changePassword', accountController.isAuthenticated, accountController.changePasswordGet);
+app.post('/account/changePassword', accountController.isAuthenticated, accountController.changePasswordPost);
+app.get('/account/create', accountController.isAuthenticated, accountController.createAccountGet);
+app.post('/account/create', accountController.isAuthenticated, accountController.createAccountPost);
+app.get('/account/delete', accountController.isAuthenticated, accountController.deleteAccountGet);
+app.post('/account/delete', accountController.isAuthenticated, accountController.deleteAccountPost);
+app.get('/createadmin', accountController.createAdmin); // <= Dev method, should be removed at release
+
+app.get('/persons', accountController.isAuthenticated, personsController.index);
+app.get('/persons/new', accountController.isAuthenticated, personsController.newIndex);
+app.post('/persons/new', accountController.isAuthenticated, personsController.addPerson);
+app.post('/persons/find', accountController.isAuthenticated, personsController.findID);
+app.post('/persons/delete', accountController.isAuthenticated, personsController.delete);
+app.post('/searchPerson', accountController.isAuthenticated, personsController.searchPerson);
+app.post('/sortColumns', accountController.isAuthenticated, personsController.sortColumns);
+app.post('/editMemo', accountController.isAuthenticated, personsController.editMemo);
+
+app.get('/persons/:id', accountController.isAuthenticated, singleController.index);
+app.get('/persons/:id/edit', accountController.isAuthenticated, singleController.editIndex);
+app.post('/persons/:id/edit', accountController.isAuthenticated, singleController.edit);
+app.post('/persons/:id/editMemo', accountController.isAuthenticated, singleController.editMemo);
+
+app.get('/companies', accountController.isAuthenticated, companiesController.index);
+app.get('/companies/new', accountController.isAuthenticated, companiesController.newIndex);
+app.post('/companies/new', accountController.isAuthenticated, companiesController.addCompany);
+app.post('/companies/find', accountController.isAuthenticated, companiesController.findID);
+app.get('/companies/:id', accountController.isAuthenticated, singleCompanyController.index);
+
+app.get('/lang/:tag', lang.switchLanguage);
+
+app.get('/import', accountController.isAuthenticated, importController.index);
+app.post('/import', accountController.isAuthenticated, importController.handleUpload);
+
+app.get('/about', homeController.about);
+
+app.get('/makecoffee', homeController.coffee);*/
 
 /**
  * Error Handling
